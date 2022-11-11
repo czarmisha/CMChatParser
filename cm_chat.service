@@ -3,7 +3,7 @@ Description=CM chat
 
 [Service]
 User=root
-WorkingDirectory=/usr/bin
+WorkingDirectory=/home/ubuntu/cm_chat
 ExecStart=cm_chat
 StartLimitInterval=60
 StartLimitBurst=10
