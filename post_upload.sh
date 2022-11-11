@@ -1,5 +1,5 @@
 #!/bin/bash
-if systemctl stop watcher.service ; then
+if systemctl stop cm_chat.service ; then
     sudo cp /home/ubuntu/cm_chat/cm_chat.service /etc/systemd/system/
     sudo cp /home/ubuntu/cm_chat/dist/cm_chat /usr/bin/
 else
