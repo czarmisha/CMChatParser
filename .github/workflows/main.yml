@@ -45,14 +45,9 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install wheel
-        pip install pyinstaller google-api-python-client gspread google-cloud-storage google oauth2client pandas
-   
-    - name: Pyinstall packaging
-      run: |
-        pyinstaller main.py --onefile --name cm_chat
+
     - name: Creating archive
       run: |
-        rm -rf build watcher.spec
         find . -name \__pycache__ -exec rm -rv {} +
         tar cvf cm_chat.tar ./*     
         
