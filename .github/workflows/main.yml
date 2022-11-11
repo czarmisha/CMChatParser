@@ -26,13 +26,12 @@ jobs:
     - name: Importing creadiatels
       run: |
         (cat <<EOF
-        SITE_URL=https://service7.rumbletalk.net/Eo3h031D/
-        LOGIN_USERNAME=${{ secrets.LOGIN_USERNAME }}
-        LOGIN_PASSWORD=${{ secrets.LOGIN_PASSWORD }}
-        BOT_TOKEN=${{ secrets.BOT_TOKEN }}
-        CHAT_ID=${{ secrets.CHAT_ID }}
-        BOT_API_URL=https://api.telegram.org/bot
-        
+          SITE_URL=https://service7.rumbletalk.net/Eo3h031D/
+          LOGIN_USERNAME=${{ secrets.LOGIN_USERNAME }}
+          LOGIN_PASSWORD=${{ secrets.LOGIN_PASSWORD }}
+          BOT_TOKEN=${{ secrets.BOT_TOKEN }}
+          CHAT_ID=${{ secrets.CHAT_ID }}
+          BOT_API_URL=https://api.telegram.org/bot
         EOF
         ) > .env
     
