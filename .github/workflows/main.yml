@@ -24,21 +24,13 @@ jobs:
       run: |
         sudo apt-get install libxml2-dev libxslt-dev python-dev python3-testresources
     - name: Importing creadiatels
-      env:
-        SITE_URL: https://service7.rumbletalk.net/Eo3h031D/
-        LOGIN_USERNAME: ${{ secrets.LOGIN_USERNAME }}
-        LOGIN_PASSWORD: ${{ secrets.LOGIN_PASSWORD }}
-        BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
-        CHAT_ID: ${{ secrets.CHAT_ID }}
-        BOT_API_URL: https://api.telegram.org/bot
       run: |
-        touch .env
-        echo SITE_URL=$SITE_URL >> .env
-        echo LOGIN_USERNAME=$LOGIN_USERNAME >> .env
-        echo LOGIN_PASSWORD=$LOGIN_PASSWORD >> .env
-        echo BOT_TOKEN=$BOT_TOKEN >> .env
-        echo CHAT_ID=$CHAT_ID >> .env
-        echo BOT_API_URL=$BOT_API_URL >> .env
+        echo "export SITE_URL: https://service7.rumbletalk.net/Eo3h031D/" >> post_upload.sh
+        echo "export LOGIN_USERNAME: ${{ secrets.LOGIN_USERNAME }}" >> post_upload.sh
+        echo "export LOGIN_PASSWORD: ${{ secrets.LOGIN_PASSWORD }}" >> post_upload.sh
+        echo "export BOT_TOKEN: ${{ secrets.BOT_TOKEN }}" >> post_upload.sh
+        echo "export CHAT_ID: ${{ secrets.CHAT_ID }}" >> post_upload.sh
+        echo "export BOT_API_URL: https://api.telegram.org/bot" >> post_upload.sh
     
     - name: Install dependencies 
       run: |
