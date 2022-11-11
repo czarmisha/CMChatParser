@@ -1,0 +1,13 @@
+[Unit]
+Description=CM chat
+
+[Service]
+User=root
+WorkingDirectory=/usr/bin
+ExecStart=cm_chat
+StartLimitInterval=60
+StartLimitBurst=10
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
