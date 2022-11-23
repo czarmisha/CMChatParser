@@ -44,7 +44,8 @@ def send_to_telegram(data):
         mess_link = mess["href"]
         mess_author = mess["author"]
         mess_time = mess["time"]
-        text = f'<b>{mess_author}</b>\n{mess_time}\n<a href="{mess_link}">Ссылка на картинку</a>'
+        additional_messages = mess['messages']
+        text = f'<b>{mess_author}</b>\n{mess_time}\n\n{additional_messages}<a href="{mess_link}">Ссылка на картинку</a>'
         params = {'chat_id': chat_id, 'text': text, 'parse_mode': 'HTML'}
         method = 'sendMessage'
         try:
@@ -65,14 +66,20 @@ def run():
         grand_parent = parent.find_element_by_xpath('..')
         msg_id = grand_parent.find_element_by_xpath('..').get_attribute('id')
         msg_time = grand_parent.find_element_by_class_name('message-date').text.split(' ')[1]
+        another_mess = grand_parent.find_elements_by_class_name('message-text')
+        messages = ''
+        for mess in another_mess:
+            if mess.text==link.web_element.text:
+                continue
+            messages += mess.text + '\n'
         data = {
             'msg_id': msg_id,
             'author': grand_parent.find_element_by_class_name('message-user-name').text,
             'href': link.web_element.get_attribute('href'),
-            'time': msg_time
+            'time': msg_time,
+            'messages': messages
         }
         data_to_send.append(data)
-
     send_to_telegram(data_to_send)
 
 
