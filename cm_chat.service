@@ -1,0 +1,13 @@
+[Unit]
+Description=CM chat
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/cm_chat
+ExecStart=/usr/bin/python3 /home/ubuntu/cm_chat/main.py
+StartLimitInterval=60
+StartLimitBurst=10
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
